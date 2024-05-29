@@ -9,6 +9,10 @@ public class Address {
     public TypeAddress Type;
     public varType varType;
 
+    public static Address createAddress(int num, String varType, String type) {
+        return new Address(num, VarType.valueOf(varType), TypeAddress.valueOf(type));
+    }
+
     public Address(int num, varType varType, TypeAddress Type) {
         this.num = num;
         this.Type = Type;

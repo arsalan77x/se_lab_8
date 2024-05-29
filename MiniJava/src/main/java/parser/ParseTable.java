@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import main.java.scanner.ScannerFactory;
+
 /**
  * Created by mohammad hosein on 6/25/2015.
  */
@@ -30,7 +32,7 @@ public class ParseTable {
                     temp = temp;
                 }
             } else {
-                terminals.put(i, new Token(Token.getTyepFormString(cols[i]), cols[i]));
+                terminals.put(i, new Token(new ScannerFactory().getType(cols[i]), cols[i]));
             }
         }
         actionTable = new ArrayList<Map<Token, Action>>();

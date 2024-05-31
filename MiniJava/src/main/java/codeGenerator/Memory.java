@@ -57,20 +57,51 @@ public class Memory {
 }
 
 class _3AddressCode {
-    public Operation operation;
-    public Address Operand1;
-    public Address Operand2;
-    public Address Operand3;
+    private Operation operation;
+    private Address Operand1;
+    private Address Operand2;
+    private Address Operand3;
 
     public _3AddressCode() {
-
     }
 
     public _3AddressCode(Operation op, Address opr1, Address opr2, Address opr3) {
-        operation = op;
-        Operand1 = opr1;
-        Operand2 = opr2;
-        Operand3 = opr3;
+        this.operation = op;
+        this.Operand1 = opr1;
+        this.Operand2 = opr2;
+        this.Operand3 = opr3;
+    }
+
+    public Operation getOperation() {
+        return operation;
+    }
+
+    public void setOperation(Operation operation) {
+        this.operation = operation;
+    }
+
+    public Address getOperand1() {
+        return Operand1;
+    }
+
+    public void setOperand1(Address Operand1) {
+        this.Operand1 = Operand1;
+    }
+
+    public Address getOperand2() {
+        return Operand2;
+    }
+
+    public void setOperand2(Address Operand2) {
+        this.Operand2 = Operand2;
+    }
+
+    public Address getOperand3() {
+        return Operand3;
+    }
+
+    public void setOperand3(Address Operand3) {
+        this.Operand3 = Operand3;
     }
 
     public String toString() {

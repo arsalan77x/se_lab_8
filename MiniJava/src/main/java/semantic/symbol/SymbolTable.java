@@ -147,8 +147,8 @@ public class SymbolTable {
         public int callerAddress;
         public int returnAddress;
         public SymbolType returnType;
-        private int index;
-
+        private int index; 
+    
         public Method(int codeAddress, SymbolType returnType) {
             this.codeAddress = codeAddress;
             this.returnType = returnType;
@@ -158,26 +158,41 @@ public class SymbolTable {
             this.parameters = new HashMap<>();
             this.localVariable = new HashMap<>();
         }
-
+    
         public Symbol getVariable(String variableName) {
             if (parameters.containsKey(variableName)) return parameters.get(variableName);
             if (localVariable.containsKey(variableName)) return localVariable.get(variableName);
             return null;
         }
-
+    
         public void addParameter(String parameterName) {
             parameters.put(parameterName, new Symbol(lastType, mem.getDateAddress()));
             orderdParameters.add(parameterName);
         }
-
+    
         private void reset() {
-            index = 0;
+            setIndex(0);
         }
-
+    
         private Symbol getNextParameter() {
-            return parameters.get(orderdParameters.get(index++));
+            return parameters.get(orderdParameters.get(getIndexAndIncrement()));
+        }
+    
+        private int getIndex() {
+            return index;
+        }
+    
+        private void setIndex(int newIndex) {
+            index = newIndex;
+        }
+    
+        private int getIndexAndIncrement() {
+            int currentIndex = getIndex();
+            setIndex(currentIndex + 1);
+            return currentIndex;
         }
     }
+    
 
 }
 
